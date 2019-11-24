@@ -12,17 +12,19 @@
 
 using namespace std;
 class jobs{
+    
     public :
-    int end;
+    int profit;
     int start;
+    int end;
 };
 bool compare(jobs j , jobs k)
 {
-    return j.end < k.start;
+    return j.end < k.start ;
 }
 int main()
 {
-    vector<jobs> v1 = {{1,6},{2,5},{3,1},{4,5},{6,9}};
+    vector<jobs> v1 = {{1,6},{2,5},{3,4},{4,5},{6,9}};
     
     sort(v1.begin(),v1.end(),compare);
     

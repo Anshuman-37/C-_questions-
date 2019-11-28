@@ -24,14 +24,16 @@ void merge( int arr[] , int low , int mid , int high ){
     }
     i=0;j=0;k=1;
     while(i < n1 && j < n2){
+       
         if(a1[i] <= a2[j]){
             arr[k] = a1[i];
-            i++ ; k++;
+            i++;
         }
         else{
             arr[k] = a2[j];
-            j++;k++;
+            j++;
         }
+        k++;
     }
     while(i < n1 ){
         arr[k] = a1[i];

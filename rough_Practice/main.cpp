@@ -22,7 +22,7 @@ void merge( int arr[] , int low , int mid , int high ){
     for(j = 0 ; j < n2 ; j++){
         a2[j] = arr[mid+1+j];
     }
-    i=0;j=0;k=l;
+    i=0;j=0;k=1;
     while(i < n1 && j < n2){
         if(a1[i] <= a2[j]){
             arr[k] = a1[i];
@@ -56,9 +56,10 @@ int main()
 {
     int arr[] = {10,9,8,7,6,5,4,3,2,1};
     merge_sort(arr,0,9);
-    for(int i : 10)
+    //int j = 10;
+    for(auto i : arr )
     {
-        cout<<arr[i]<<" ";
+        cout<<i<<" ";
     }
     return 0;
 }

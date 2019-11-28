@@ -11,27 +11,33 @@
 #include <vector>
 
 using namespace std;
-class jobs{
-    
-    public :
-    int profit;
-    int start;
-    int end;
-};
-bool compare(jobs j , jobs k)
-{
-    return j.end < k.start ;
+void merge( int arr , int low , int mid , int high ){
+    int i = low ;
+    int j = mid+1;
+    int k = high;
+    int *a1 = new int[mid - low];
+    int *a2 = new int[high- mid];
+
+    for(i = 0; i < n ; i++){
+        
+    }
+}
+void merge_sort(int arr, int low, int high){
+    //base case
+    if(low < high){
+        int mid = (low + high)/2;
+        merge_sort(arr,low,mid);
+        merge_sort(arr,mid+1,high);
+        merge(arr,low,mid,high);
+    }
 }
 int main()
 {
-    vector<jobs> v1 = {{1,6},{2,5},{3,4},{4,5},{6,9}};
-    
+ 
     sort(v1.begin(),v1.end(),compare);
-    
     for(auto x : v1)
     {
         cout << x.start << " " << x.end <<endl;
     }
-    
     return 0;
 }

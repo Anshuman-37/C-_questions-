@@ -11,21 +11,42 @@
 #include <vector>
 
 using namespace std;
-void merge( int arr , int low , int mid , int high ){
-    int i = low ;
-    int j = mid+1;
-    int k = high;
-    int *a1 = new int[mid - low];
-    int *a2 = new int[high- mid];
-
-    for(i = 0; i < n ; i++){
-        
+void merge( int arr[] , int low , int mid , int high ){
+    int i,j,k;
+    int n1 = mid - low + 1;
+    int n2 = high - mid;
+    int a1[n1] , a2[n2];
+    for(i = 0; i < n1 ; i++){
+        a1[i] = arr[low + i ];
+    }
+    for(j = 0 ; j < n2 ; j++){
+        a2[j] = arr[mid+1+j];
+    }
+    i=0;j=0;k=l;
+    while(i < n1 && j < n2){
+        if(a1[i] <= a2[j]){
+            arr[k] = a1[i];
+            i++ ; k++;
+        }
+        else{
+            arr[k] = a2[j];
+            j++;k++;
+        }
+    }
+    while(i < n1 ){
+        arr[k] = a1[i];
+        i++;k++;
+    }
+    while(j < n2 ){
+        arr[k] = a2[j];
+        j++;
+        k++;
     }
 }
-void merge_sort(int arr, int low, int high){
+void merge_sort(int arr[], int low, int high){
     //base case
     if(low < high){
-        int mid = (low + high)/2;
+        int mid = (low+(high-1))/2;
         merge_sort(arr,low,mid);
         merge_sort(arr,mid+1,high);
         merge(arr,low,mid,high);
@@ -34,10 +55,6 @@ void merge_sort(int arr, int low, int high){
 int main()
 {
  
-    sort(v1.begin(),v1.end(),compare);
-    for(auto x : v1)
-    {
-        cout << x.start << " " << x.end <<endl;
-    }
+   
     return 0;
 }

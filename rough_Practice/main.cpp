@@ -54,7 +54,11 @@ void merge_sort(int arr[], int low, int high){
 }
 int main()
 {
- 
-   
+    int arr[] = {10,9,8,7,6,5,4,3,2,1};
+    merge_sort(arr,0,9);
+    for(int i : 10)
+    {
+        cout<<arr[i]<<" ";
+    }
     return 0;
 }

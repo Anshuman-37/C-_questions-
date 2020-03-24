@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <vector>
+#include <map>
 using namespace std;
 void get_duplicate(int* arr, int n)
 {
@@ -17,27 +18,25 @@ void get_duplicate(int* arr, int n)
     }
 
 }
-int findDuplicate3(vector<int>& nums)
+//This function is not working idk .. But still there is something wrong with the algo
+void get_duplicate2(int *arr ,int n)
 {
-    if (nums.size() > 1)
+    if(n > 0){
+    map<int,int> m1;
+    for(int i = 0 ; i< n ;i++)
+    {
+      m1[arr[i]]++;
+    }
+    for(auto m : m1)
         {
-        int slow = nums[0];
-        int fast = nums[nums[0]];
-        while (slow != fast)
-            {
-            slow = nums[slow];
-            fast = nums[nums[fast]];
-            }
-        
-        fast = 0;
-        while (fast != slow)
-            {
-            fast = nums[fast];
-            slow = nums[slow];
-            }
-        return slow;
+            if(m.second> 1)
+                cout<<m.first<<" ";
         }
-    return -1;
+    }
+    else{
+        cout<<"NILL";
+    }
+       
 }
 int main()
 {
@@ -48,13 +47,9 @@ int main()
     {
         cin>>arr[i];
     }
-    vector<int> v1;
-    for(int i = 0 ; i < n ; i++)
-    {
-        v1[i] = arr[i];
-    }
-    findDuplicate3(v1);
-   // get_duplicate(arr,n); // Will get the duplicates in the array
+  
+   // findDuplicate3(v1);
+    get_duplicate2(arr,n); // Will get the duplicates in the array
     return 0;
 
 }
